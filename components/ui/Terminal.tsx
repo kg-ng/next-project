@@ -50,7 +50,7 @@ export const Terminal = () => {
     <div>
       <p className="font-mono-pixel text-[11px] md:text-xs text-terracotta mb-1.5 flex items-center gap-1.5">
         <span className="animate-blink">▸</span>
-        try it — click below and type <code className="text-amber">help</code>
+        try it — click below and type <code className="text-amber">hello</code>
       </p>
       <div
         onClick={() => inputRef.current?.focus()}

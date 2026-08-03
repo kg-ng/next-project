@@ -14,9 +14,15 @@ export const TERMINAL_PROMPT = "keith@portfolio";
 const line = (...lines: string[]) => lines;
 
 export const TERMINAL_COMMANDS: Record<string, () => string[]> = {
+  hello: () =>
+    line(
+      `> Hey, I'm ${profile.name.split(" ")[0]} 👋`,
+      "type 'help' to see what else this terminal can do",
+    ),
   help: () =>
     line(
       "Available commands:",
+      "  hello        — say hi",
       "  whoami       — who am I, in one line",
       "  bio          — a short summary",
       "  skills       — tech stack overview",
