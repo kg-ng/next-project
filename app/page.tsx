@@ -1,22 +1,25 @@
-import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
-import Footer from "@/components/Footer";
-import Grid from "@/components/Grid";
+import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import RecentProjects from "@/components/RecentProjects";
-import { FloatingNav } from "@/components/ui/FloatingNav";
-import { navItems } from "@/data";
+import Stats from "@/components/Stats";
+import Highlights from "@/components/Highlights";
+import Stack from "@/components/Stack";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
-      <div className="max-w-7xl w-full">
-        <FloatingNav navItems={navItems} />
+    <main className="relative min-h-screen pixel-bg text-white">
+      <Nav />
+      <div className="max-w-7xl w-full mx-auto sm:px-6 px-4">
         <Hero />
-        <Grid />
-        <RecentProjects />
+        <Stats />
+        <div id="about">
+          <Highlights />
+          <Stack />
+        </div>
         <Experience />
-        <Approach />
+        <Projects />
         <Footer />
       </div>
     </main>

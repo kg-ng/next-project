@@ -64,26 +64,166 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
   }
+
+  /* --- Retro Cozy Pixel theme tokens (light + dark) ---
+     Components consume these via the `pixel-*` Tailwind color tokens
+     (see tailwind.config.ts), never hardcoded hex, so the whole site
+     re-themes from these two blocks alone. */
+  :root {
+    --pixel-bg: 40 38% 92%; /* warm cream page background (light) */
+    --pixel-panel: 36 45% 97%; /* window/card background (light) */
+    --pixel-panel-2: 34 40% 90%; /* tag/pill background (light) */
+    --pixel-border: 24 45% 20%; /* espresso border/shadow ink */
+    --pixel-text: 24 35% 12%; /* primary text (light) */
+    --pixel-text-soft: 24 20% 32%; /* secondary text (light) */
+    --pixel-accent: 28 74% 61%; /* amber */
+    --pixel-accent-2: 18 60% 56%; /* terracotta */
+    --pixel-grid-line: 24 45% 20%;
+  }
+
+  .dark {
+    --pixel-bg: 24 30% 8%; /* espresso page background (dark) */
+    --pixel-panel: 24 24% 13%; /* window/card background (dark) */
+    --pixel-panel-2: 24 20% 10%; /* tag/pill background (dark) */
+    --pixel-border: 24 45% 8%; /* deep espresso border/shadow ink */
+    --pixel-text: 30 60% 95%; /* primary text (dark) */
+    --pixel-text-soft: 28 25% 82%; /* secondary text (dark) */
+    --pixel-accent: 32 74% 65%; /* amber */
+    --pixel-accent-2: 18 65% 62%; /* terracotta */
+    --pixel-grid-line: 32 74% 65%;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border !scroll-smooth;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  button {
-    @apply active:outline-none;
+    background-color: hsl(var(--pixel-bg));
+    color: hsl(var(--pixel-text));
   }
 }
 
 @layer utilities {
+  /* Pixel-art display heading font, hard drop shadow instead of blur */
   .heading {
-    @apply font-bold text-4xl md:text-5xl text-center;
+    @apply font-pixel text-3xl md:text-4xl text-center leading-relaxed tracking-wide;
+    color: hsl(var(--pixel-text));
+    text-shadow: 3px 3px 0 hsl(var(--pixel-border) / 0.55);
   }
 
   .black-gradient {
-    background: linear-gradient(90deg, #161a31 0%, #06091f 100%);
+    background: linear-gradient(90deg, #2b1d14 0%, #150d08 100%);
+  }
+
+  /* Cozy warm backdrop with a faint pixel-grid, used behind the whole page */
+  .pixel-bg {
+    background-color: hsl(var(--pixel-bg));
+    background-image: linear-gradient(
+        hsl(var(--pixel-grid-line) / 0.06) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, hsl(var(--pixel-grid-line) / 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Hard-edged offset "pixel shadow" instead of soft blurred shadows */
+  .pixel-shadow {
+    box-shadow: 4px 4px 0 0 hsl(var(--pixel-border)),
+      8px 8px 0 0 hsl(var(--pixel-border) / 0.35);
+  }
+  .pixel-shadow-sm {
+    box-shadow: 2px 2px 0 0 hsl(var(--pixel-border));
+  }
+  .pixel-shadow-hover {
+    transition: transform 0.12s steps(2), box-shadow 0.12s steps(2);
+  }
+  .pixel-shadow-hover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 hsl(var(--pixel-border)),
+      10px 10px 0 0 hsl(var(--pixel-border) / 0.35);
+  }
+  .pixel-shadow-hover:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 0 hsl(var(--pixel-border));
+  }
+
+  /* Stepped/notched "pixelated" corners instead of smooth border-radius */
+  .pixel-corners {
+    border-radius: 0;
+    clip-path: polygon(
+      0 8px,
+      8px 8px,
+      8px 0,
+      calc(100% - 8px) 0,
+      calc(100% - 8px) 8px,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      8px calc(100% - 8px),
+      0 calc(100% - 8px)
+    );
+  }
+  .pixel-corners-sm {
+    border-radius: 0;
+    clip-path: polygon(
+      0 4px,
+      4px 4px,
+      4px 0,
+      calc(100% - 4px) 0,
+      calc(100% - 4px) 4px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      4px calc(100% - 4px),
+      0 calc(100% - 4px)
+    );
+  }
+
+  .pixel-border {
+    border: 2px solid hsl(var(--pixel-border));
+    outline: 2px solid hsl(var(--pixel-accent) / 0.35);
+    outline-offset: 2px;
+  }
+
+  /* Retro "window" title bar chrome — used for terminal/OS-style cards */
+  .pixel-window-bar {
+    @apply flex items-center gap-1.5 px-3 py-2 border-b-2;
+    border-color: hsl(var(--pixel-border));
+    background-color: hsl(var(--pixel-panel-2));
+  }
+  .pixel-dot {
+    @apply w-2.5 h-2.5 pixel-corners-sm inline-block border;
+    border-color: hsl(var(--pixel-border));
+  }
+
+  /* Subtle scanline texture overlay for that CRT/retro-game cozy feel */
+  .scanlines {
+    position: relative;
+  }
+  .scanlines::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.12) 0px,
+      rgba(0, 0, 0, 0.12) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    mix-blend-mode: overlay;
+  }
+
+  .font-pixel {
+    font-family: var(--font-pixel);
+  }
+  .font-mono-pixel {
+    font-family: var(--font-mono-pixel);
   }
 }

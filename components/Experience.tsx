@@ -1,41 +1,94 @@
-import { workExperience } from "@/data";
 import React from "react";
-import { Button } from "./ui/MovingBorder";
+import { workExperience, education, certifications } from "@/data";
+import PixelWindow from "./ui/PixelWindow";
 
 const Experience = () => {
   return (
-    <div className="py-20 w-full" id="experiences">
-      <h1 className="heading">
-        My
-        <span className="text-purple"> Work Experience</span>
-      </h1>
-      <div className=" w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-        {workExperience.map((card) => (
-          <Button
-            key={card.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            className="flex-1 text-white border-neutral-200 dark:border-slate-800"
-          >
-            <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w16"
-              />
-              <div className="lg:ms-5 ">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
-                  {card.title}
-                </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
-                  {card.desc}
+    <section id="experience" className="py-16">
+      <div className="mx-auto max-w-5xl px-4">
+        <h2 className="heading mb-10">
+          Work <span className="text-terracotta">Experience</span>
+        </h2>
+        <div className="flex flex-col gap-6">
+          {workExperience.map((job) => (
+            <PixelWindow key={job.id} title={`${job.company}.log`}>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
+                <div>
+                  <h3 className="font-pixel text-base md:text-lg text-white">
+                    {job.role}
+                  </h3>
+                  <p className="font-mono-pixel text-sm text-amber mt-1">
+                    {job.company}
+                  </p>
+                </div>
+                <span className="font-mono-pixel text-xs px-2 py-1 pixel-corners-sm border border-espresso bg-black-100 text-terracotta shrink-0">
+                  {job.period}
+                </span>
+              </div>
+              <p className="text-white-200 text-sm mt-4 leading-relaxed">
+                {job.desc}
+              </p>
+              <ul className="mt-4 space-y-1.5">
+                {job.highlights.map((h) => (
+                  <li
+                    key={h}
+                    className="font-mono-pixel text-xs md:text-sm text-white-100 flex gap-2"
+                  >
+                    <span className="text-amber">▸</span>
+                    {h}
+                  </li>
+                ))}
+              </ul>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {job.stack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="font-mono-pixel text-[11px] px-2 py-1 pixel-corners-sm border border-espresso bg-black-100 text-white-200"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </PixelWindow>
+          ))}
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-6 mt-10">
+          <PixelWindow title="education.log">
+            {education.map((e) => (
+              <div key={e.id}>
+                <h3 className="font-pixel text-sm md:text-base text-white">
+                  {e.school}
+                </h3>
+                <p className="font-mono-pixel text-sm text-amber mt-1">
+                  {e.degree}
+                </p>
+                <p className="font-mono-pixel text-xs text-terracotta mt-1">
+                  {e.period}
                 </p>
               </div>
-            </div>
-          </Button>
-        ))}
+            ))}
+          </PixelWindow>
+          <PixelWindow title="certifications.log">
+            <ul className="space-y-2">
+              {certifications.map((c) => (
+                <li key={c.id} className="flex gap-2">
+                  <span className="text-amber">🏅</span>
+                  <div>
+                    <p className="font-pixel text-sm md:text-base text-white">
+                      {c.name}
+                    </p>
+                    <p className="font-mono-pixel text-xs text-terracotta">
+                      {c.issuer}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </PixelWindow>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

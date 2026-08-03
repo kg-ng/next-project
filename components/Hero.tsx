@@ -1,44 +1,44 @@
+"use client";
 import React from "react";
-import { Spotlight } from "./ui/Spotlight";
-import { TextGenerateEffect } from "./ui/TextGenerateEffect";
-import MagicButton from "./MagicButton";
+import { motion } from "framer-motion";
+import PixelWindow from "./ui/PixelWindow";
+import PixelButton from "./PixelButton";
+import { profile } from "@/data";
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
-      <div>
-        <Spotlight
-          className="-top-40 -left-10 md:-left-32 md:-top-20"
-          fill="white"
-        />
-        <Spotlight
-          className="top-10 left-full h-[80vh] w-[50vw]"
-          fill="purple"
-        />
-        <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
+    <section id="hero" className="pt-10 pb-20">
+      <div className="mx-auto max-w-4xl px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          <PixelWindow title="~/keith-ng/README.md">
+            <p className="font-mono-pixel text-amber text-base md:text-lg">
+              $ whoami
+            </p>
+            <h1 className="font-pixel text-2xl md:text-4xl mt-3 mb-4 leading-relaxed text-white">
+              {profile.role}
+            </h1>
+            <p className="text-white-200 text-sm md:text-base leading-relaxed max-w-2xl">
+              {profile.bio}
+            </p>
+            <p className="font-mono-pixel text-xs md:text-sm text-terracotta mt-4">
+              📍 {profile.location}
+            </p>
+            <div className="flex flex-wrap gap-4 mt-8">
+              <PixelButton title="View my work" href="#projects" />
+              <PixelButton
+                title="Download résumé"
+                href={profile.resumeHref}
+                otherClasses="!bg-black-200 !text-amber"
+              />
+            </div>
+          </PixelWindow>
+        </motion.div>
       </div>
-      <div className="h-screen w-full dark:bg-black-100 bg-white  dark:bg-grid-white/[0.02] bg-grid-black/[0.3] flex items-center justify-center absolute top-0 left-0">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      </div>
-      <div className="flex justify-center relative my-20-z-10">
-        <div className="max-w-[89vw] md:max-w-2xl lg-max-w-[60vw] flex flex-col items-center justify-center">
-          <TextGenerateEffect
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
-            words="Transforming Concepts into Seamless User Experenices"
-          />
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi, I&apos;m Keith, I'm a passionate Full Stack Developer with a
-            proven track record in architecting and developing scalable,
-            cloud-native web applications. My expertise lies in leveraging the
-            power of AWS to deliver innovative solutions that drive business
-            growth.
-          </p>
-          <a href="#about">
-            <MagicButton title="Show my work" />
-          </a>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 };
 
