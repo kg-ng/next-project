@@ -4,6 +4,7 @@ import { profile, socialMedia } from "@/data";
 import PixelButton from "./PixelButton";
 import PixelWindow from "./ui/PixelWindow";
 import Reveal from "./ui/Reveal";
+import CopyButton from "./ui/CopyButton";
 import { SECTION_ID } from "@/constants";
 
 const Footer = () => {
@@ -26,6 +27,11 @@ const Footer = () => {
               icon={<FaLocationArrow />}
               position="right"
               href={`mailto:${profile.email}`}
+            />
+            <CopyButton
+              text={profile.email}
+              label={profile.email}
+              className="mt-4"
             />
           </div>
         </PixelWindow>
