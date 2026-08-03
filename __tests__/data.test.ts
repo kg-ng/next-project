@@ -7,7 +7,6 @@ import {
   workExperience,
   projects,
   socialMedia,
-  certifications,
   education,
   highlights,
 } from "@/data";
@@ -74,8 +73,7 @@ describe("data/index content", () => {
     });
   });
 
-  it("certifications and education are non-empty", () => {
-    expect(certifications.length).toBeGreaterThan(0);
+  it("education is non-empty", () => {
     expect(education.length).toBeGreaterThan(0);
   });
 

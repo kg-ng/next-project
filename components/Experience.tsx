@@ -1,5 +1,5 @@
 import React from "react";
-import { workExperience, education, certifications } from "@/data";
+import { workExperience, education } from "@/data";
 import PixelWindow from "./ui/PixelWindow";
 import PixelTag from "./ui/PixelTag";
 import WorkStatusBadge from "./ui/WorkStatusBadge";
@@ -57,7 +57,7 @@ const Experience = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 mt-10">
+        <div className="mt-10">
           <Reveal>
           <PixelWindow title="education.log">
             {education.map((e) => (
@@ -73,25 +73,6 @@ const Experience = () => {
                 </p>
               </div>
             ))}
-          </PixelWindow>
-          </Reveal>
-          <Reveal delay={0.08}>
-          <PixelWindow title="certifications.log">
-            <ul className="space-y-2">
-              {certifications.map((c) => (
-                <li key={c.id} className="flex gap-2">
-                  <span className="text-amber">🏅</span>
-                  <div>
-                    <p className="font-pixel text-sm md:text-base text-white">
-                      {c.name}
-                    </p>
-                    <p className="font-mono-pixel text-xs text-terracotta">
-                      {c.issuer}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </PixelWindow>
           </Reveal>
         </div>

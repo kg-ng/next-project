@@ -103,14 +103,6 @@ export const highlights = {
   ],
 };
 
-export const certifications = [
-  {
-    id: 1,
-    name: "AWS Certified Cloud Practitioner",
-    issuer: "Amazon Web Services",
-  },
-];
-
 export const education = [
   {
     id: 1,
