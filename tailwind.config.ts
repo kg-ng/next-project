@@ -36,25 +36,33 @@ const config = {
         "pixel-accent": "hsl(var(--pixel-accent))",
         "pixel-accent-2": "hsl(var(--pixel-accent-2))",
         // Legacy static tokens — kept for anything not yet migrated to pixel-* tokens.
+        // Legacy static tokens — now aliased to the theme-aware CSS vars above so every
+        // existing `text-white`/`bg-black-200`/`border-espresso` class re-themes for
+        // light/dark automatically instead of staying hardcoded to the dark palette.
         black: {
-          DEFAULT: "#120b07",
-          100: "#1a1410",
-          200: "#261c14",
-          300: "rgba(255, 244, 230, 0.125)",
+          DEFAULT: "hsl(var(--pixel-bg))",
+          100: "hsl(var(--pixel-bg))",
+          200: "hsl(var(--pixel-panel))",
+          300: "hsl(var(--pixel-panel-2) / 0.5)",
         },
         white: {
-          DEFAULT: "#FFF4E6",
-          100: "#E8DFD3",
-          200: "#D8CFC0",
+          DEFAULT: "hsl(var(--pixel-text))",
+          100: "hsl(var(--pixel-text))",
+          200: "hsl(var(--pixel-text-soft))",
         },
         cream: "#F3E5D8",
         amber: {
-          soft: "#F5C99B",
-          DEFAULT: "#E8A659",
+          soft: "hsl(var(--pixel-accent) / 0.7)",
+          DEFAULT: "hsl(var(--pixel-accent))",
         },
-        terracotta: "#D97B4F",
-        espresso: "#1a0f08",
-        purple: "#D97B4F",
+        terracotta: "hsl(var(--pixel-accent-2))",
+        espresso: "hsl(var(--pixel-border))",
+        purple: "hsl(var(--pixel-accent-2))",
+        // Fixed-vivid tokens (same in both themes) for solid-fill surfaces like buttons
+        // and window-bar dots, paired with a fixed-dark text color for legible labels.
+        "amber-solid": "#E8A659",
+        "terracotta-solid": "#D97B4F",
+        "espresso-solid": "#1a0f08",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -18,7 +18,7 @@ const PixelButton = ({
   const content = (
     <span
       className={`inline-flex h-full w-full cursor-pointer items-center justify-center pixel-corners-sm
-           bg-terracotta border-2 border-espresso px-6 font-pixel text-[11px] md:text-xs uppercase tracking-wider text-espresso gap-2 ${otherClasses ?? ""}`}
+           bg-terracotta-solid border-2 border-espresso-solid px-6 font-pixel text-[11px] md:text-xs uppercase tracking-wider text-espresso-solid gap-2 ${otherClasses ?? ""}`}
     >
       {position === "left" && icon}
       {title}
@@ -27,7 +27,7 @@ const PixelButton = ({
   );
 
   const buttonClass =
-    "relative inline-flex h-12 overflow-hidden pixel-corners-sm pixel-shadow pixel-shadow-hover bg-terracotta focus:outline-none";
+    "relative inline-flex h-12 overflow-hidden pixel-corners-sm pixel-shadow pixel-shadow-hover bg-terracotta-solid focus:outline-none";
 
   if (href) {
     return (

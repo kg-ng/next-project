@@ -26,9 +26,9 @@ export const PixelWindow = ({
     >
       {title && (
         <div className="pixel-window-bar">
-          <span className="pixel-dot bg-terracotta" />
-          <span className="pixel-dot bg-amber" />
-          <span className="pixel-dot bg-amber-soft" />
+          <span className="pixel-dot bg-terracotta-solid" />
+          <span className="pixel-dot bg-amber-solid" />
+          <span className="pixel-dot bg-amber-solid/70" />
           <span className="ml-2 font-mono-pixel text-sm tracking-wide text-white-200">
             {title}
           </span>

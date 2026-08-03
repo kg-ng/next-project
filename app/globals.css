@@ -76,8 +76,8 @@
     --pixel-border: 24 45% 20%; /* espresso border/shadow ink */
     --pixel-text: 24 35% 12%; /* primary text (light) */
     --pixel-text-soft: 24 20% 32%; /* secondary text (light) */
-    --pixel-accent: 28 74% 61%; /* amber */
-    --pixel-accent-2: 18 60% 56%; /* terracotta */
+    --pixel-accent: 28 74% 32%; /* amber, darkened for AA contrast on cream bg */
+    --pixel-accent-2: 18 70% 32%; /* terracotta, darkened for AA contrast on cream bg */
     --pixel-grid-line: 24 45% 20%;
   }
 
