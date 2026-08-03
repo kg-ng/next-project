@@ -6,9 +6,17 @@ import { profile } from "@/data";
 import { renderWithProviders as render } from "./test-utils";
 
 describe("Terminal", () => {
-  it("shows the help output by default", () => {
+  it("starts blank with no command history", () => {
     render(<Terminal />);
-    expect(screen.getByText(/Available commands:/)).toBeInTheDocument();
+    expect(screen.queryByText(/Available commands:/)).not.toBeInTheDocument();
+  });
+
+  it("runs the help command and shows the command list", async () => {
+    const user = userEvent.setup();
+    render(<Terminal />);
+    const input = screen.getByLabelText("Terminal command input");
+    await user.type(input, "help{Enter}");
+    expect(await screen.findByText(/Available commands:/)).toBeInTheDocument();
   });
 
   it("runs a recognized command and prints CV-sourced output", async () => {
@@ -33,6 +41,8 @@ describe("Terminal", () => {
     const user = userEvent.setup();
     render(<Terminal />);
     const input = screen.getByLabelText("Terminal command input");
+    await user.type(input, "help{Enter}");
+    expect(await screen.findByText(/Available commands:/)).toBeInTheDocument();
     await user.type(input, "clear{Enter}");
     expect(screen.queryByText(/Available commands:/)).not.toBeInTheDocument();
   });

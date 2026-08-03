@@ -18,13 +18,7 @@ export const Terminal = () => {
   const { playBlip } = useSound();
   const [input, setInput] = useState("");
   const [focused, setFocused] = useState(false);
-  const [history, setHistory] = useState<HistoryEntry[]>([
-    {
-      id: nextId(),
-      command: "help",
-      output: TERMINAL_COMMANDS.help(),
-    },
-  ]);
+  const [history, setHistory] = useState<HistoryEntry[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const runCommand = (raw: string) => {
