@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Silkscreen, VT323 } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import KonamiEasterEgg from "@/components/KonamiEasterEgg";
 
 import "./globals.css";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <KonamiEasterEgg />
         </ThemeProvider>
       </body>
     </html>
