@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import PixelWindow from "./ui/PixelWindow";
 import PixelButton from "./PixelButton";
+import Terminal from "./ui/Terminal";
 import { profile } from "@/data";
 import { SECTION_ID } from "@/constants";
 
@@ -36,6 +37,7 @@ const Hero = () => {
                 otherClasses="!bg-black-200 !text-amber"
               />
             </div>
+            <Terminal />
           </PixelWindow>
         </motion.div>
       </div>
