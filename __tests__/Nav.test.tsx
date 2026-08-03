@@ -15,7 +15,7 @@ describe("Nav", () => {
 
   it("renders the brand link pointing at #hero", () => {
     render(<Nav />);
-    const brand = screen.getByRole("link", { name: /Keith_Geoffrey_NG\.exe/i });
+    const brand = screen.getByRole("link", { name: /Keith_Geoffrey_Ng/i });
     expect(brand).toHaveAttribute("href", "#hero");
   });
 });

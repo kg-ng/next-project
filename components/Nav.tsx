@@ -15,7 +15,7 @@ export const Nav = () => {
             href="#hero"
             className="font-pixel text-xs md:text-sm tracking-wider text-amber"
           >
-            Keith_Geoffrey_NG.exe
+            Keith_Geoffrey_Ng
           </a>
           <ul className="hidden sm:flex items-center gap-6">
             {navItems.map((item) => (
