@@ -41,7 +41,13 @@ const Footer = () => {
                 aria-label={info.label}
                 className="w-10 h-10 flex items-center justify-center bg-black-200 pixel-corners-sm pixel-shadow-sm pixel-shadow-hover border-2 border-espresso"
               >
-                <img src={info.img} alt="" width={18} height={18} />
+                <img
+                  src={info.img}
+                  alt=""
+                  width={18}
+                  height={18}
+                  className="invert dark:invert-0"
+                />
               </a>
             ))}
           </div>
