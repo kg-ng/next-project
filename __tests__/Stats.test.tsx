@@ -4,11 +4,11 @@ import Stats from "@/components/Stats";
 import { impactStats } from "@/data";
 
 describe("Stats", () => {
-  it("renders every impact stat's value and label", () => {
+  it("renders every impact stat's value and label", async () => {
     render(<Stats />);
-    impactStats.forEach((stat) => {
-      expect(screen.getByText(stat.value)).toBeInTheDocument();
+    for (const stat of impactStats) {
+      expect(await screen.findByText(stat.value)).toBeInTheDocument();
       expect(screen.getByText(stat.label)).toBeInTheDocument();
-    });
+    }
   });
 });
