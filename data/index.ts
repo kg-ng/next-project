@@ -136,12 +136,13 @@ export const workExperience = [
     desc: "Led cloud-native modernization across CORE, RETAIL/SALES and CORP banking projects — migrating SOAP integrations to REST, piloting Quarkus for faster container startup, and driving security/QA to zero vulnerabilities.",
     highlights: [
       "Cloud-native & Quarkus POC to cut container startup time and memory footprint",
+      "Spring Boot microservices across CORE, RETAIL/SALES, and CORP banking projects",
       "API modernization: legacy SOAP integrations wrapped in a REST layer",
       "DevSecOps: Trivy in CI/CD, reusable pipeline boilerplates across teams",
       "100% of SonarQube vulnerabilities eliminated, 96% JaCoCo unit test coverage",
       "Fund Transfer database/API design with automated API contract docs",
     ],
-    stack: ["Azure", "Quarkus", "Trivy", "SonarQube", "REST"],
+    stack: ["Azure", "Spring Boot", "Quarkus", "Trivy", "SonarQube", "REST"],
   },
   {
     id: 3,
