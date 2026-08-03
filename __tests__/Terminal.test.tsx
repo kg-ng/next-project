@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Terminal from "@/components/ui/Terminal";
 import { profile } from "@/data";
+import { renderWithProviders as render } from "./test-utils";
 
 describe("Terminal", () => {
   it("shows the help output by default", () => {

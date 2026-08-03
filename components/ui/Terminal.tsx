@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import { TERMINAL_COMMANDS, TERMINAL_PROMPT } from "@/data/terminalCommands";
+import { useSound } from "@/components/sound-provider";
 
 type HistoryEntry = { id: number; command: string; output: string[] };
 
@@ -14,6 +15,7 @@ const nextId = () => idCounter++;
  * section. Falls back to a friendly "command not found" for anything else.
  */
 export const Terminal = () => {
+  const { playBlip } = useSound();
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
@@ -27,6 +29,7 @@ export const Terminal = () => {
   const runCommand = (raw: string) => {
     const command = raw.trim();
     if (!command) return;
+    playBlip();
 
     if (command === "clear") {
       setHistory([]);

@@ -2,8 +2,11 @@
 import React from "react";
 import { navItems } from "@/data";
 import ThemeToggle from "./ThemeToggle";
+import SoundToggle from "./SoundToggle";
+import { useSound } from "./sound-provider";
 
 export const Nav = () => {
+  const { playClick } = useSound();
   return (
     <header className="sticky top-0 z-[100] w-full">
       <div className="mx-auto max-w-6xl px-4 pt-4">
@@ -19,6 +22,7 @@ export const Nav = () => {
               <li key={item.link}>
                 <a
                   href={item.link}
+                  onClick={playClick}
                   className="font-mono-pixel text-sm tracking-wide text-white-200 hover:text-amber transition-colors"
                 >
                   {item.name}
@@ -31,6 +35,7 @@ export const Nav = () => {
               <span className="animate-blink">●</span> online
             </span>
             <ThemeToggle />
+            <SoundToggle />
           </div>
         </nav>
       </div>

@@ -1,7 +1,8 @@
 import { describe, it, expect } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Nav from "@/components/Nav";
 import { navItems } from "@/data";
+import { renderWithProviders as render } from "./test-utils";
 
 describe("Nav", () => {
   it("renders every nav item as a link to its section anchor", () => {
