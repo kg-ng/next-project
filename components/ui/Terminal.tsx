@@ -94,7 +94,7 @@ export const Terminal = () => {
           />
           <span
             aria-hidden
-            className={`w-2 h-4 bg-amber ${focused ? "animate-blink" : "opacity-40"}`}
+            className={`w-2 h-4 bg-amber dark:bg-white ${focused ? "animate-blink" : "opacity-40"}`}
           />
         </form>
       </div>
