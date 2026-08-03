@@ -197,6 +197,13 @@ export const projects = [
     iconLists: ["/three.svg", "/vitejs.svg", "/js.svg"],
     link: "https://kgn-portfolio-a0b394.netlify.app/",
   },
+  {
+    id: 4,
+    title: "GitHub Profile README",
+    des: "My kg-ng/kg-ng special repo — a custom-designed GitHub profile README showcasing stats, stack, and highlights, and the original inspiration for this portfolio's positioning copy.",
+    iconLists: ["/git.svg", "/js.svg"],
+    link: "https://github.com/kg-ng/kg-ng",
+  },
 ];
 
 export const socialMedia = [
