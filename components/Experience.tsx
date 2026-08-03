@@ -21,7 +21,13 @@ const Experience = () => {
                     {job.company}
                   </p>
                 </div>
-                <span className="font-mono-pixel text-xs px-2 py-1 pixel-corners-sm border border-espresso bg-black-100 text-terracotta shrink-0">
+                <span
+                  className={`font-mono-pixel text-sm md:text-base font-bold px-3 py-1.5 pixel-corners-sm border-2 shrink-0 uppercase tracking-wider ${
+                    job.period === "Current"
+                      ? "border-amber-solid bg-amber-solid text-espresso-solid"
+                      : "border-espresso bg-black-100 text-terracotta"
+                  }`}
+                >
                   {job.period}
                 </span>
               </div>
