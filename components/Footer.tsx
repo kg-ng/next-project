@@ -3,12 +3,14 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { profile, socialMedia } from "@/data";
 import PixelButton from "./PixelButton";
 import PixelWindow from "./ui/PixelWindow";
+import Reveal from "./ui/Reveal";
 import { SECTION_ID } from "@/constants";
 
 const Footer = () => {
   return (
     <footer className="w-full py-16" id={SECTION_ID.CONTACT}>
       <div className="mx-auto max-w-3xl px-4">
+        <Reveal>
         <PixelWindow title="contact_me.sh">
           <div className="flex flex-col items-center text-center">
             <h2 className="heading lg:max-w-[36rem]">
@@ -27,6 +29,7 @@ const Footer = () => {
             />
           </div>
         </PixelWindow>
+        </Reveal>
 
         <div className="flex mt-10 flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-mono-pixel text-xs md:text-sm text-white-200">

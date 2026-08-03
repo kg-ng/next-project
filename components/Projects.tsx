@@ -1,6 +1,7 @@
 import React from "react";
 import { projects } from "@/data";
 import PixelWindow from "./ui/PixelWindow";
+import Reveal from "./ui/Reveal";
 import { FaLocationArrow } from "react-icons/fa6";
 import { SECTION_ID } from "@/constants";
 
@@ -12,9 +13,9 @@ const Projects = () => {
           Selected <span className="text-terracotta">Projects</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={index * 0.08} className="flex">
             <PixelWindow
-              key={project.id}
               title={`${project.title.toLowerCase().replace(/\s+/g, "-")}.sh`}
               className="flex flex-col"
               bodyClassName="flex flex-col flex-1"
@@ -52,6 +53,7 @@ const Projects = () => {
                 )}
               </div>
             </PixelWindow>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -3,6 +3,7 @@ import { workExperience, education, certifications } from "@/data";
 import PixelWindow from "./ui/PixelWindow";
 import PixelTag from "./ui/PixelTag";
 import WorkStatusBadge from "./ui/WorkStatusBadge";
+import Reveal from "./ui/Reveal";
 import { SECTION_ID } from "@/constants";
 
 const Experience = () => {
@@ -13,8 +14,9 @@ const Experience = () => {
           Work <span className="text-terracotta">Experience</span>
         </h2>
         <div className="flex flex-col gap-6">
-          {workExperience.map((job) => (
-            <PixelWindow key={job.id} title={`${job.company}.log`}>
+          {workExperience.map((job, index) => (
+            <Reveal key={job.id} delay={index * 0.06}>
+            <PixelWindow title={`${job.company}.log`}>
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2">
                 <div>
                   <h3 className="font-pixel text-base md:text-lg text-white">
@@ -51,10 +53,12 @@ const Experience = () => {
                 ))}
               </div>
             </PixelWindow>
+            </Reveal>
           ))}
         </div>
 
         <div className="grid sm:grid-cols-2 gap-6 mt-10">
+          <Reveal>
           <PixelWindow title="education.log">
             {education.map((e) => (
               <div key={e.id}>
@@ -70,6 +74,8 @@ const Experience = () => {
               </div>
             ))}
           </PixelWindow>
+          </Reveal>
+          <Reveal delay={0.08}>
           <PixelWindow title="certifications.log">
             <ul className="space-y-2">
               {certifications.map((c) => (
@@ -87,6 +93,7 @@ const Experience = () => {
               ))}
             </ul>
           </PixelWindow>
+          </Reveal>
         </div>
       </div>
     </section>

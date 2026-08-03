@@ -1,6 +1,7 @@
 import React from "react";
 import PixelWindow from "./ui/PixelWindow";
 import PixelTag from "./ui/PixelTag";
+import Reveal from "./ui/Reveal";
 import { highlights } from "@/data";
 import { PIXEL_TAG_ACCENT_CLASS } from "@/constants";
 
@@ -15,6 +16,7 @@ const Highlights = () => {
   return (
     <section className="py-16">
       <div className="mx-auto max-w-5xl px-4">
+        <Reveal>
         <PixelWindow title="~/keith-ng/highlights.ts">
           <p className="font-mono-pixel text-terracotta text-sm">
             const keith = {"{"}
@@ -57,6 +59,7 @@ const Highlights = () => {
           </div>
           <p className="font-mono-pixel text-terracotta text-sm mt-2">{"}"};</p>
         </PixelWindow>
+        </Reveal>
       </div>
     </section>
   );
