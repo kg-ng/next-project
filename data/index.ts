@@ -179,7 +179,7 @@ export const projects = [
   {
     id: 1,
     title: "Retro-Cozy Portfolio (this site)",
-    des: "This portfolio itself — a Next.js 14 app rebuilt with a hand-rolled retro-pixel design system, custom Copilot agents/skills, and zero UI library dependency for the visuals.",
+    des: "This portfolio itself — a Next.js 16 app rebuilt with a hand-rolled retro-pixel design system, custom Copilot agents/skills, and zero UI library dependency for the visuals.",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg"],
     link: "https://github.com/kg-ng/next-project",
   },

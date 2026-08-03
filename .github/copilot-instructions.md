@@ -1,7 +1,7 @@
 # Copilot Instructions — Keith Ng Portfolio
 
 ## Overview
-This is Keith Ng's personal portfolio: a single-page **Next.js 14 (App Router)** site built with **TypeScript**, **Tailwind CSS**, and **Framer Motion**, styled as a **retro, pixel-art, cozy** experience (terminal/OS-window motifs, not glassmorphism or 3D). It showcases profile info, impact stats, tech stack, work experience, projects, and contact links, driven almost entirely by static data in `data/index.ts`.
+This is Keith Ng's personal portfolio: a single-page **Next.js 16 (App Router)** site built with **TypeScript**, **Tailwind CSS**, and **Framer Motion**, styled as a **retro, pixel-art, cozy** experience (terminal/OS-window motifs, not glassmorphism or 3D). It showcases profile info, impact stats, tech stack, work experience, projects, and contact links, driven almost entirely by static data in `data/index.ts`.
 
 - Package manager: `npm` (lockfile: `package-lock.json`). A `yarn.lock` also exists but is not the primary flow — prefer `npm install` / `npm run <script>` unless asked otherwise.
 - Entry point: `app/page.tsx` composes section components in order: `Nav → Hero → Stats → Stack → Experience → Projects → Footer`.
@@ -9,7 +9,7 @@ This is Keith Ng's personal portfolio: a single-page **Next.js 14 (App Router)**
 - The site was rebuilt from scratch (no Three.js/globe, no lottie confetti, no bento-grid — those were removed entirely) around the reusable `components/ui/PixelWindow.tsx` shell and `components/PixelButton.tsx`.
 
 ## Tech Stack
-- Next.js 14 App Router, React 18, TypeScript
+- Next.js 16 App Router, React 19, TypeScript
 - Tailwind CSS (custom theme in `tailwind.config.ts`, CSS vars + pixel-design utilities in `app/globals.css`)
 - Framer Motion for light entrance animation only (no heavy 3D/canvas libraries)
 - `next-themes` for dark mode (site is dark-mode-only in practice)
