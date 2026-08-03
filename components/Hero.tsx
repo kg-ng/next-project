@@ -37,7 +37,9 @@ const Hero = () => {
                 otherClasses="!bg-black-200 !text-amber"
               />
             </div>
-            <Terminal />
+            <div className="mt-6">
+              <Terminal />
+            </div>
           </PixelWindow>
         </motion.div>
       </div>
