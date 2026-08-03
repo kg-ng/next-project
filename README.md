@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Keith Ng — Portfolio
 
-## Getting Started
+A retro-cozy, pixel-art themed portfolio built with Next.js 16 (App Router) and Turbopack. All content is data-driven and synced against my CV, so the site, terminal, and résumé stay in step with each other.
 
-First, run the development server:
+**Live features:**
+- Retro pixel-window UI (title bars, hard corners, offset shadows) instead of soft glassmorphism
+- Light / dark theme toggle (persisted, no flash-of-wrong-theme)
+- Interactive terminal in the Hero section — type `help` to explore my CV via commands (`whoami`, `skills`, `experience`, `projects`, `stats`, `contact`, `sudo hire-me`)
+- Konami code easter egg (↑↑↓↓←→←→BA)
+- Scroll-triggered reveal animations and animated stat counters
+- Retro 8-bit sound effects (synthesized via Web Audio API, muted by default — toggle in the nav)
+- Draggable, click-to-front Hero and Projects windows
+- Copy-to-clipboard contact email
+
+## Tech stack
+
+- **Framework:** Next.js 16 (App Router, Turbopack) + React 19 + TypeScript
+- **Styling:** Tailwind CSS with a custom pixel-art design system (CSS variables for theme-aware colors)
+- **Animation:** Framer Motion (reveal-on-scroll, drag, count-up, transitions)
+- **Theming:** next-themes (class-based light/dark)
+- **Testing:** Vitest + React Testing Library + jsdom
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command             | Description                              |
+| -------------------- | ----------------------------------------- |
+| `npm run dev`         | Start the dev server (Turbopack)          |
+| `npm run build`       | Production build                          |
+| `npm run start`       | Serve the production build                |
+| `npm run lint`        | Run ESLint                                |
+| `npm run test`        | Run the Vitest suite once                 |
+| `npm run test:watch`  | Run Vitest in watch mode                  |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  # App Router entry (layout, page, global styles)
+components/           # Section components (Hero, Stack, Experience, Projects, Footer, Nav, ...)
+components/ui/        # Reusable primitives (PixelWindow, PixelTag, Reveal, Terminal, CopyButton, ...)
+constants/            # Shared literals (section ids, work status, reused class names)
+data/                  # All copy/content, read by components — edit here, not in JSX
+hooks/                 # Custom hooks (useKonamiCode)
+__tests__/             # Vitest + Testing Library suite
+public/                # Static assets, incl. Keith_Ng_CV.pdf
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content & CV sync
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All copy (profile, work experience, projects, skills, stats) lives in `data/index.ts`, decoupled from the components that render it. The Hero terminal's command output reads from the same file, so it can never drift out of sync with the rest of the site.
 
-## Deploy on Vercel
+The résumé PDF at `public/Keith_Ng_CV.pdf` is the source of truth for career details. Whenever it's updated (e.g. edited in Canva and re-exported), `data/index.ts` is manually re-synced to match — ask to "sync the CV" to re-run that pass.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test
+```
+
+Covers constants, data integrity (e.g. exactly one "Current" role, every stat has a value/label), and component behavior (theme toggle, sound toggle, nav links, stats rendering, the interactive terminal's command handling, and the Konami easter egg).
