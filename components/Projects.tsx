@@ -19,6 +19,7 @@ const Projects = () => {
               title={`${project.title.toLowerCase().replace(/\s+/g, "-")}.sh`}
               className="flex flex-col"
               bodyClassName="flex flex-col flex-1"
+              draggable
             >
               <h3 className="font-pixel text-base text-white mb-2">
                 {project.title}

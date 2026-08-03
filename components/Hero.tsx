@@ -16,7 +16,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
         >
-          <PixelWindow title="~/keith-ng/README.md">
+          <PixelWindow title="~/keith-ng/README.md" draggable>
             <p className="font-mono-pixel text-amber text-base md:text-lg">
               $ whoami
             </p>
