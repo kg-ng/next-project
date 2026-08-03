@@ -2,10 +2,11 @@ import React from "react";
 import { projects } from "@/data";
 import PixelWindow from "./ui/PixelWindow";
 import { FaLocationArrow } from "react-icons/fa6";
+import { SECTION_ID } from "@/constants";
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-16">
+    <section id={SECTION_ID.PROJECTS} className="py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="heading mb-10">
           Selected <span className="text-terracotta">Projects</span>

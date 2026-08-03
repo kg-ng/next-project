@@ -1,10 +1,13 @@
 import React from "react";
 import { workExperience, education, certifications } from "@/data";
 import PixelWindow from "./ui/PixelWindow";
+import PixelTag from "./ui/PixelTag";
+import WorkStatusBadge from "./ui/WorkStatusBadge";
+import { SECTION_ID } from "@/constants";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16">
+    <section id={SECTION_ID.EXPERIENCE} className="py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="heading mb-10">
           Work <span className="text-terracotta">Experience</span>
@@ -21,15 +24,7 @@ const Experience = () => {
                     {job.company}
                   </p>
                 </div>
-                <span
-                  className={`font-mono-pixel text-sm md:text-base font-bold px-3 py-1.5 pixel-corners-sm border-2 shrink-0 uppercase tracking-wider ${
-                    job.period === "Current"
-                      ? "border-amber-solid bg-amber-solid text-espresso-solid"
-                      : "border-espresso bg-black-100 text-terracotta"
-                  }`}
-                >
-                  {job.period}
-                </span>
+                <WorkStatusBadge period={job.period} />
               </div>
               <p className="text-white-200 text-sm mt-4 leading-relaxed">
                 {job.desc}
@@ -47,12 +42,12 @@ const Experience = () => {
               </ul>
               <div className="flex flex-wrap gap-2 mt-4">
                 {job.stack.map((tech) => (
-                  <span
+                  <PixelTag
                     key={tech}
-                    className="font-mono-pixel text-[11px] px-2 py-1 pixel-corners-sm border border-espresso bg-black-100 text-white-200"
+                    className="text-[11px] px-2 py-1 text-white-200"
                   >
                     {tech}
-                  </span>
+                  </PixelTag>
                 ))}
               </div>
             </PixelWindow>

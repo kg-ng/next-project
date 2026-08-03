@@ -1,6 +1,8 @@
 import React from "react";
 import PixelWindow from "./ui/PixelWindow";
+import PixelTag from "./ui/PixelTag";
 import { highlights } from "@/data";
+import { PIXEL_TAG_ACCENT_CLASS } from "@/constants";
 
 /**
  * Tech-stack + professional-highlights showcase, styled as a pixel-terminal
@@ -33,12 +35,9 @@ const Highlights = () => {
             <p className="font-mono-pixel text-xs md:text-sm text-white-200">domains: [</p>
             <div className="flex flex-wrap gap-2 pl-4">
               {highlights.domains.map((d) => (
-                <span
-                  key={d}
-                  className="font-mono-pixel text-xs px-2.5 py-1 pixel-corners-sm border border-espresso bg-black-100 text-terracotta"
-                >
+                <PixelTag key={d} className={PIXEL_TAG_ACCENT_CLASS}>
                   {d}
-                </span>
+                </PixelTag>
               ))}
             </div>
             <p className="font-mono-pixel text-xs md:text-sm text-white-200">],</p>

@@ -3,10 +3,11 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { profile, socialMedia } from "@/data";
 import PixelButton from "./PixelButton";
 import PixelWindow from "./ui/PixelWindow";
+import { SECTION_ID } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="w-full py-16" id="contact">
+    <footer className="w-full py-16" id={SECTION_ID.CONTACT}>
       <div className="mx-auto max-w-3xl px-4">
         <PixelWindow title="contact_me.sh">
           <div className="flex flex-col items-center text-center">

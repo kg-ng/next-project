@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 import PixelWindow from "./ui/PixelWindow";
 import PixelButton from "./PixelButton";
 import { profile } from "@/data";
+import { SECTION_ID } from "@/constants";
 
 const Hero = () => {
   return (
-    <section id="hero" className="pt-10 pb-20">
+    <section id={SECTION_ID.HERO} className="pt-10 pb-20">
       <div className="mx-auto max-w-4xl px-4">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

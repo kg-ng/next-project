@@ -2,12 +2,14 @@
 // components read from here so design and content stay decoupled.
 // Synced against Keith_Ng_CV.pdf — keep this file in step whenever the CV changes.
 
+import { SECTION_ID } from "@/constants";
+
 export const navItems = [
-  { name: "About", link: "#about" },
-  { name: "Stack", link: "#stack" },
-  { name: "Experience", link: "#experience" },
-  { name: "Projects", link: "#projects" },
-  { name: "Contact", link: "#contact" },
+  { name: "About", link: `#${SECTION_ID.ABOUT}` },
+  { name: "Stack", link: `#${SECTION_ID.STACK}` },
+  { name: "Experience", link: `#${SECTION_ID.EXPERIENCE}` },
+  { name: "Projects", link: `#${SECTION_ID.PROJECTS}` },
+  { name: "Contact", link: `#${SECTION_ID.CONTACT}` },
 ];
 
 export const profile = {

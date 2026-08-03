@@ -1,10 +1,12 @@
 import React from "react";
 import PixelWindow from "./ui/PixelWindow";
+import PixelTag from "./ui/PixelTag";
 import { skillGroups } from "@/data";
+import { SECTION_ID } from "@/constants";
 
 const Stack = () => {
   return (
-    <section id="stack" className="py-16">
+    <section id={SECTION_ID.STACK} className="py-16">
       <div className="mx-auto max-w-5xl px-4">
         <h2 className="heading mb-10">
           My <span className="text-terracotta">Tech Stack</span>
@@ -18,12 +20,7 @@ const Stack = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <span
-                      key={item}
-                      className="font-mono-pixel text-xs md:text-sm px-3 py-1.5 pixel-corners-sm border border-espresso bg-black-100 text-white-100"
-                    >
-                      {item}
-                    </span>
+                    <PixelTag key={item}>{item}</PixelTag>
                   ))}
                 </div>
               </div>
