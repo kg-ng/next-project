@@ -170,7 +170,7 @@ export const workExperience = [
       "Microservices on EC2/S3/Lambda/RDS with a shared Storybook component library",
       "PingFed SSO, X-Ray & CloudWatch observability",
     ],
-    stack: ["Go", "React Native", "AWS Lambda", "NestJS"],
+    stack: ["Go", "Node.js", "TypeScript", "NestJS", "React Native", "AWS Lambda"],
   },
 ];
 
