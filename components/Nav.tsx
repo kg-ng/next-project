@@ -4,9 +4,14 @@ import { navItems } from "@/data";
 import ThemeToggle from "./ThemeToggle";
 import SoundToggle from "./SoundToggle";
 import { useSound } from "./sound-provider";
+import { useTypewriter } from "@/hooks/useTypewriter";
 
 export const Nav = () => {
   const { playClick } = useSound();
+  const typedName = useTypewriter("Keith_Geoffrey_Ng", {
+    typingSpeed: 100,
+    pauseDuration: 5000,
+  });
   return (
     <header className="sticky top-0 z-[100] w-full">
       <div className="mx-auto max-w-6xl px-4 pt-4">
@@ -15,7 +20,8 @@ export const Nav = () => {
             href="#hero"
             className="font-pixel text-xs md:text-sm tracking-wider text-amber"
           >
-            Keith_Geoffrey_Ng
+            {typedName}
+            <span className="animate-blink">_</span>
           </a>
           <ul className="hidden sm:flex items-center gap-6">
             {navItems.map((item) => (
