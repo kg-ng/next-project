@@ -189,10 +189,10 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Agentic DevSecOps Pipeline",
-    des: "A multi-agent AI system that automates code review, security remediation, and compliance checks across multiple repos — cutting manual review time and catching issues before merge.",
-    iconLists: ["/next.svg", "/dock.svg", "/postgresql.svg"],
-    link: "",
+    title: "AI Security Pipeline",
+    des: "A generic, standalone Node/TypeScript security-scanning pipeline — dependency-vulnerability audit, native secret-leak scan, and an original static code-pattern scanner, triaged by an LLM agent with a rule-based fallback. Ships as a CLI and a reusable GitHub Action any pipeline can drop in.",
+    iconLists: ["/ts.svg", "/git.svg"],
+    link: "https://github.com/kg-ng/ai-security-pipeline",
   },
   {
     id: 3,
