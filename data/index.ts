@@ -195,6 +195,13 @@ export const projects = [
     link: "https://github.com/kg-ng/ai-security-pipeline",
   },
   {
+    id: 6,
+    title: "Agentic System",
+    des: "A generic, reusable multi-agent engineering platform — 18 Copilot agents and 20 skills spanning backend platform engineering, frontend engineering, heavy ETL, and agentic-AI-specific security (grounded in the OWASP LLM Top 10 and the \"lethal trifecta\" threat model). Designed to be dropped into any project as a starting point for an agentic workflow.",
+    iconLists: ["/ts.svg", "/git.svg"],
+    link: "https://github.com/kg-ng/agentic-system",
+  },
+  {
     id: 3,
     title: "3D Interactive Portfolio",
     des: "An earlier portfolio experiment — a fully custom 3D scene built with Three.js and Vite, exploring WebGL interaction design outside of the React ecosystem.",
