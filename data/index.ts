@@ -19,7 +19,7 @@ export const navItems = [
 export const profile = {
   name: "Keith Ng",
   role: "Senior Agentic AI & Cloud-Native Full-Stack Engineer",
-  tagline: "I build cozy, cloud-native software that just works — with AI agents doing the grind.",
+  tagline: "I design and ship multi-agent AI systems that build, secure, and scale cloud-native software.",
   bio: `${YEARS_OF_EXPERIENCE}+ years architecting secure, high-performance systems on AWS and Azure. I specialize in modernizing legacy platforms into event-driven, cloud-native architectures, and designing multi-agent AI systems that automate code review, security remediation, and DevSecOps so engineers can focus on the interesting problems.`,
   location: "Philippines · Remote-friendly, working across global time zones",
   email: "keithng.dev@gmail.com",
@@ -40,6 +40,17 @@ export const impactStats = [
 // Skills grouped by domain — gives recruiters/engineers a quick map of depth vs. breadth.
 export const skillGroups = [
   {
+    id: "ai",
+    title: "AI & Security Automation",
+    items: [
+      "Agentic AI Architecture",
+      "Custom AI Agents",
+      "LLM Optimization",
+      "AI Security Remediation",
+      "DevSecOps Automation",
+    ],
+  },
+  {
     id: "languages",
     title: "Languages",
     items: ["TypeScript", "JavaScript", "Java", "Go", "Python"],
@@ -53,17 +64,6 @@ export const skillGroups = [
     id: "backend",
     title: "Backend",
     items: ["Node.js", "NestJS", "Fastify", "Spring Boot", "Quarkus", "Sequelize"],
-  },
-  {
-    id: "ai",
-    title: "AI & Security Automation",
-    items: [
-      "Agentic AI Architecture",
-      "Custom AI Agents",
-      "LLM Optimization",
-      "AI Security Remediation",
-      "DevSecOps Automation",
-    ],
   },
   {
     id: "cloud",
