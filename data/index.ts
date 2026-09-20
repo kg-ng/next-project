@@ -197,7 +197,7 @@ export const projects = [
   {
     id: 6,
     title: "Agentic System",
-    des: "A generic, reusable multi-agent engineering platform — 18 Copilot agents and 20 skills spanning backend platform engineering, frontend engineering, heavy ETL, and agentic-AI-specific security (grounded in the OWASP LLM Top 10 and the \"lethal trifecta\" threat model). Designed to be dropped into any project as a starting point for an agentic workflow.",
+    des: "A generic, reusable multi-agent engineering platform — 19 Copilot agents and 20 skills spanning backend platform engineering, frontend engineering, heavy ETL, and agentic-AI-specific security (grounded in the OWASP LLM Top 10 and the \"lethal trifecta\" threat model). Designed to be dropped into any project as a starting point for an agentic workflow.",
     iconLists: ["/ts.svg", "/git.svg"],
     link: "https://github.com/kg-ng/agentic-system",
   },
