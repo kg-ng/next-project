@@ -3,6 +3,10 @@
 // Synced against Keith_Ng_CV.pdf — keep this file in step whenever the CV changes.
 
 import { SECTION_ID } from "@/constants";
+import { getYearsOfExperience } from "@/lib/utils";
+
+// Career start: Jan 2022 — years of experience below is computed dynamically so it never goes stale.
+const YEARS_OF_EXPERIENCE = getYearsOfExperience(2022, 0);
 
 export const navItems = [
   { name: "About", link: `#${SECTION_ID.ABOUT}` },
@@ -16,7 +20,7 @@ export const profile = {
   name: "Keith Ng",
   role: "Senior Agentic AI & Cloud-Native Full-Stack Engineer",
   tagline: "I build cozy, cloud-native software that just works — with AI agents doing the grind.",
-  bio: "3+ years architecting secure, high-performance systems on AWS and Azure. I specialize in modernizing legacy platforms into event-driven, cloud-native architectures, and designing multi-agent AI systems that automate code review, security remediation, and DevSecOps so engineers can focus on the interesting problems.",
+  bio: `${YEARS_OF_EXPERIENCE}+ years architecting secure, high-performance systems on AWS and Azure. I specialize in modernizing legacy platforms into event-driven, cloud-native architectures, and designing multi-agent AI systems that automate code review, security remediation, and DevSecOps so engineers can focus on the interesting problems.`,
   location: "Philippines · Remote-friendly, working across global time zones",
   email: "keithng.dev@gmail.com",
   phone: "+63 917 797 8956",
@@ -27,7 +31,7 @@ export const profile = {
 
 // Headline impact metrics — pulled from CV highlights, gives the "senior" signal at a glance.
 export const impactStats = [
-  { id: 1, value: "3+", label: "years shipping production systems" },
+  { id: 1, value: `${YEARS_OF_EXPERIENCE}+`, label: "years shipping production systems" },
   { id: 2, value: "85", label: "AI agents architected across 4 repos" },
   { id: 3, value: "26+", label: "reusable agent skill pipelines" },
   { id: 4, value: "0", label: "vulnerabilities at last security audit" },
