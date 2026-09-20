@@ -32,7 +32,7 @@ export const profile = {
 // Headline impact metrics — pulled from CV highlights, gives the "senior" signal at a glance.
 export const impactStats = [
   { id: 1, value: `${YEARS_OF_EXPERIENCE}+`, label: "years shipping production systems" },
-  { id: 2, value: "27", label: "AI agents architected across 2 repos" },
+  { id: 2, value: "27", label: "AI agents architected" },
   { id: 3, value: "34", label: "reusable agent skills" },
   { id: 4, value: "0", label: "vulnerabilities at last security audit" },
 ];
