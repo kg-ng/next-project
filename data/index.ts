@@ -97,7 +97,7 @@ export const highlights = {
     "E-commerce & Supply Chain",
   ],
   capabilities: [
-    "Designing multi-agent AI systems (85+ specialized agent configs, 26+ reusable skill pipelines)",
+    "Designing multi-agent AI systems (95+ specialized agent configs, 34+ reusable skill pipelines)",
     "Autonomous security remediation & architecture-governance agents",
     "Cloud-native architecture across AWS & Azure",
     "Infrastructure as Code — CDK, Terraform, CloudFormation",
@@ -127,7 +127,7 @@ export const workExperience = [
       "Core banking data pipeline on Aurora Serverless v2 (PostgreSQL 17) with Drizzle ORM",
       "Resilient event-driven architecture: EventBridge, per-entity SQS, DLQs, redrive & replay",
       "Domain orchestration layer across 4 AWS accounts, 9 ratified architecture decision records",
-      "Agentic AI platform: 85 specialized agent configs, 26+ reusable skill pipelines across 4 repos",
+      "Agentic AI platform: 95+ specialized agent configs, 34+ reusable skill pipelines across 4 repos",
       "AI-driven weekly security pipeline with automated vulnerability-patching PRs",
     ],
     stack: ["AWS CDK", "EventBridge", "Aurora Serverless v2", "Drizzle ORM", "Lambda", "SQS"],
