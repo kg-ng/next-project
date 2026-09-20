@@ -208,6 +208,13 @@ export const projects = [
     iconLists: ["/git.svg", "/js.svg"],
     link: "https://github.com/kg-ng/kg-ng",
   },
+  {
+    id: 5,
+    title: "AI Recipe",
+    des: "Automatically enhances recipes by analyzing and applying community-tested modifications from AllRecipes.com — uses LLM processing to extract meaningful tweaks and apply them with full citation tracking.",
+    iconLists: ["/git.svg"],
+    link: "https://github.com/kg-ng/ai-recipe",
+  },
 ];
 
 export const socialMedia = [
