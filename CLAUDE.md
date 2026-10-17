@@ -37,10 +37,9 @@ npm test            # Vitest + Testing Library
 npm run build       # must complete without errors (validates types + SSR/prerendering)
 npm run dev         # for visual/manual verification; check browser console for hydration warnings
 ```
-**Known failing test:** `Nav.test.tsx > renders the brand link pointing at #hero` fails on `main` as well. The brand
-name is typed out by `useTypewriter("Keith_Geoffrey_Ng")`, so the link has no full accessible name when the test
-asserts. It is a stale test, not a broken site; do not treat it as a regression from your change, and fix it
-deliberately (wait for the typed text, or match on `href`) rather than by loosening other tests.
+The suite is expected to be fully green. The brand name in `Nav` is typed out by `useTypewriter`, so it is empty on first
+render (to avoid a hydration mismatch). Tests that need the typed text must advance fake timers
+(see `Nav.test.tsx`); find the link by `href` for anything that does not.
 
 `npm run lint` (`eslint .`) — run it for larger refactors, but it's not required for small content tweaks.
 
