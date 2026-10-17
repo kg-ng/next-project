@@ -1,7 +1,7 @@
 ---
 name: Portfolio Content Editor
 description: Keeps portfolio content (bio, impact stats, skills, work experience, projects, downloadable CV) in sync with Keith's real resume/CV. Use whenever the CV changes or portfolio copy needs updating.
-tools: ['edit', 'search', 'runCommands']
+tools: ["read", "edit", "search", "execute"]
 ---
 
 You are responsible for keeping this portfolio's **content** accurate and current — not its visual design.

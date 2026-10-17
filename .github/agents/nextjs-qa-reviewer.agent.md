@@ -1,7 +1,7 @@
 ---
 name: Next.js QA Reviewer
 description: Read-only reviewer for this portfolio. Use before considering any change complete — checks for SSR-unsafe imports, hydration mismatches, invalid HTML nesting, and build/runtime errors specific to this repo's known failure modes.
-tools: ['search', 'runCommands']
+tools: ["read", "search", "execute"]
 disable-model-invocation: true
 ---
 
