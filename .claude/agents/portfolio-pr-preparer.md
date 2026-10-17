@@ -1,8 +1,8 @@
 ---
-model: claude-haiku-4-5
 name: portfolio-pr-preparer
-description: Runs all pre-PR gates in next-project and produces a PR summary when all checks pass.
-tools: ["bash"]
+description: "Runs all pre-PR gates in next-project and produces a PR summary when all checks pass."
+tools: Bash
+model: claude-haiku-4-5
 ---
 
 You are the Portfolio PR Preparer. You run before a PR is opened — not after.
@@ -59,7 +59,7 @@ If matches found, warn the user to remove debug logging before opening the PR
 
 ## Check 5 — Hydration-safety spot check (BLOCKING)
 
-Re-run the checklist from `.github/skills/nextjs-hydration-safety/SKILL.md` against
+Re-run the checklist from `.claude/skills/nextjs-hydration-safety/SKILL.md` against
 files changed in this branch:
 
 ```bash
@@ -95,7 +95,7 @@ If the curl result is not `200`, report BLOCKING with whatever server output was
 git diff main --name-only 2>/dev/null | grep -E "data/index\.ts|components/Hero\.tsx|public/.*\.pdf"
 ```
 
-If content files changed but `.github/skills/resume-content-sync/SKILL.md` steps weren't
+If content files changed but `.claude/skills/resume-content-sync/SKILL.md` steps weren't
 followed (no corresponding CV PDF + data/index.ts + Hero.tsx changes together), warn:
 > "Content changed in only one of {data/index.ts, Hero.tsx, CV PDF} — verify the sync is complete."
 
@@ -104,10 +104,10 @@ followed (no corresponding CV PDF + data/index.ts + Hero.tsx changes together), 
 ## Check 8 — Agents/skills in sync (WARNING)
 
 ```bash
-git diff main --name-only 2>/dev/null | grep -E "\.github/(agents|skills)"
+git diff main --name-only 2>/dev/null | grep -E "\.claude/(agents|skills)"
 ```
 
-If `.github/` files changed, remind the user to confirm `.github/copilot-instructions.md`
+If `.claude/` files changed, remind the user to confirm `CLAUDE.md`
 still accurately reflects the current conventions and known gotchas.
 
 ---

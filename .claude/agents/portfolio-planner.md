@@ -1,25 +1,8 @@
 ---
-model: claude-haiku-4-5
 name: portfolio-planner
-description: >
-  Orchestrator agent for this portfolio site. Talks to the user first to understand
-  their intent, then plans and coordinates the right agents and skills to execute
-  the work. Use this as the single entry point when you are unsure which agent to
-  call, or when a task spans multiple agents (e.g. redesign + content + QA + commit).
-tools: ["read", "search", "execute", "edit", "agent"]
-handoffs:
-  - label: Run QA review
-    agent: nextjs-qa-reviewer
-    prompt: 'Please review the implementation produced in this session.'
-    send: false
-  - label: Commit changes
-    agent: portfolio-commit
-    prompt: 'Please commit the changes from this session.'
-    send: false
-  - label: Prepare PR
-    agent: portfolio-pr-preparer
-    prompt: 'Please run the pre-PR checklist for these changes.'
-    send: false
+description: "Orchestrator agent for this portfolio site. Talks to the user first to understand their intent, then plans and coordinates the right agents and skills to execute the work. Use this as the single entry point when you are unsure which agent to call, or when a task spans multiple agents (e.g. redesign + content + QA + commit)."
+tools: Read, Grep, Glob, Bash, Edit, Write, Agent
+model: claude-haiku-4-5
 ---
 
 You are the Portfolio Planner. You are the entry point. You do not implement code
@@ -339,7 +322,7 @@ LESSON LEARNED (session 1): Never nest `<a>`/`Link` tags — invalid HTML causes
 DOM reparenting and hydration errors. `PinContainer` uses a `<div>` wrapper specifically
 because `PinPerspective` renders its own inner `<a>`.
 
-See `.github/skills/nextjs-hydration-safety/SKILL.md` for the full write-up of these
+See `.claude/skills/nextjs-hydration-safety/SKILL.md` for the full write-up of these
 and any new ones discovered later.
 
 ## Token Efficiency

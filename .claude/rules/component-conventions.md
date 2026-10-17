@@ -1,5 +1,7 @@
 ---
-applyTo: "components/**,app/**"
+paths:
+  - "components/**"
+  - "app/**"
 ---
 
 # Portfolio — Component & Style Rules
@@ -42,7 +44,7 @@ Content-only changes belong in `data/index.ts`, not hardcoded inside components.
 - Any import that touches `document`/`window` at module or render time must be lazy-loaded via `next/dynamic(() => import(...), { ssr: false })` — `"use client"` alone does not prevent Next's initial SSR pass
 - Never call `Math.random()`, `Date.now()`, or `new Date()` directly inside JSX during render — derive deterministic values instead (e.g. from an `id` prop) or move randomness into a client-only `useEffect`
 - Never nest `<a>`/`next/link` tags — one real anchor per interactive element
-- Full details and examples: `.github/skills/nextjs-hydration-safety/SKILL.md`
+- Full details and examples: `.claude/skills/nextjs-hydration-safety/SKILL.md`
 
 ## Dead Code
 
