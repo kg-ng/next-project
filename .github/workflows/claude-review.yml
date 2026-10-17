@@ -1,0 +1,44 @@
+name: Claude PR review
+
+# Reviews a PR when it is opened, reopened or marked ready. Not on every push,
+# to keep cost down. Re-run by closing and reopening, or comment-trigger later.
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Fork PRs get no secrets, so skip them rather than fail.
+    if: github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            Review this pull request using the code-review-and-quality skill
+            in .claude/skills/, and respect CLAUDE.md and .claude/rules/.
+            Report real problems only: correctness, hydration/SSR safety,
+            security, and violations of the project rules. Skip style nitpicks.
+            Post findings as inline comments, and one short summary comment.
+            If there are no problems, say so in one line.
+          claude_args: |
+            --max-turns 12
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Read,Grep,Glob"
