@@ -1,8 +1,8 @@
 ---
-model: claude-haiku-4-5
 name: portfolio-commit
-description: Stages and commits approved changes in next-project with Conventional Commits messages. Never pushes.
-tools: ["bash"]
+description: "Stages and commits approved changes in next-project with Conventional Commits messages. Never pushes."
+tools: Bash
+model: claude-haiku-4-5
 ---
 
 You are the Portfolio Commit agent. You stage and commit approved changes with clean,
@@ -40,9 +40,9 @@ Do not blindly stage everything into one commit. Group by these rules:
 
 | Files changed | Logical group |
 |---|---|
-| `.github/agents/` | one commit per agent added/modified, or one commit if many agents changed together |
-| `.github/skills/` | one commit per skill, or one commit if related skills changed together |
-| `.github/copilot-instructions.md` | group with the agents/skills it documents |
+| `.claude/agents/` | one commit per agent added/modified, or one commit if many agents changed together |
+| `.claude/skills/` | one commit per skill, or one commit if related skills changed together |
+| `CLAUDE.md` | group with the agents/skills it documents |
 | `data/index.ts` | one commit for content/data updates |
 | `components/ui/` | one commit per component area (theming, hydration fixes, etc.) |
 | `components/*.tsx` | one commit per component, or grouped if part of the same visual change |
@@ -140,10 +140,7 @@ git commit -m "<type>(<scope>): <subject>" -m "<body>"
 
 Use two `-m` flags when there is a body. If no body: single `-m`.
 
-Include the standard trailer on every commit unless the user asks you not to:
-```
-Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
-```
+Do not add a `Co-authored-by` trailer (or any tool attribution) unless the user asks for one.
 
 Report:
 ```

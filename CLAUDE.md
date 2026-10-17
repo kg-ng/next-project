@@ -1,4 +1,4 @@
-# Copilot Instructions — Keith Ng Portfolio
+# Keith Ng Portfolio
 
 ## Overview
 This is Keith Ng's personal portfolio: a single-page **Next.js 16 (App Router)** site built with **TypeScript**, **Tailwind CSS**, and **Framer Motion**, styled as a **retro, pixel-art, cozy** experience (terminal/OS-window motifs, not glassmorphism or 3D). It showcases profile info, impact stats, tech stack, work experience, projects, and contact links, driven almost entirely by static data in `data/index.ts`.
@@ -16,7 +16,7 @@ This is Keith Ng's personal portfolio: a single-page **Next.js 16 (App Router)**
 - Google Fonts via `next/font/google`: `Inter` (body), `Silkscreen` (pixel display/headings), `VT323` (mono-pixel labels/tags) — see `app/layout.tsx`
 
 ## Design System — "Retro Cozy Pixel"
-See `.github/skills/retro-pixel-design/SKILL.md` for the full palette/typography/shape reference. Summary: warm espresso backgrounds, amber/terracotta accents, pixel-art display type (`font-pixel`/`font-mono-pixel`), **no smooth border-radius** (use `.pixel-corners`/`.pixel-corners-sm` stepped-corner clip-paths instead), **no soft blurred shadows** (use `.pixel-shadow`/`.pixel-shadow-sm` hard offset shadows instead). Frame new content sections as retro "OS windows" using `PixelWindow`, not ad-hoc rounded/blurred cards.
+See `.claude/skills/retro-pixel-design/SKILL.md` for the full palette/typography/shape reference. Summary: warm espresso backgrounds, amber/terracotta accents, pixel-art display type (`font-pixel`/`font-mono-pixel`), **no smooth border-radius** (use `.pixel-corners`/`.pixel-corners-sm` stepped-corner clip-paths instead), **no soft blurred shadows** (use `.pixel-shadow`/`.pixel-shadow-sm` hard offset shadows instead). Frame new content sections as retro "OS windows" using `PixelWindow`, not ad-hoc rounded/blurred cards.
 
 ## Code Style & Conventions
 - Functional React components, default exports for page-level/section components (e.g. `Hero`, `Footer`), named exports for reusable UI primitives (e.g. `PixelWindow`).
@@ -30,24 +30,29 @@ See `.github/skills/retro-pixel-design/SKILL.md` for the full palette/typography
 3. **No nested `<a>` tags**: never render an anchor/`next/link` inside another anchor's DOM subtree — invalid HTML causes browser reparenting and hydration mismatches.
 
 ## Testing & Validation
-There is no test suite configured. Before considering a change complete:
+There is a Vitest suite in `__tests__/` (11 files). Before considering a change complete:
 ```bash
 npm install        # only if dependencies/lockfile changed or node_modules missing
+npm test            # Vitest + Testing Library
 npm run build       # must complete without errors (validates types + SSR/prerendering)
 npm run dev         # for visual/manual verification; check browser console for hydration warnings
 ```
-`npm run lint` exists (`next lint`) — run it for larger refactors, but it's not required for small content tweaks.
+The suite is expected to be fully green. The brand name in `Nav` is typed out by `useTypewriter`, so it is empty on first
+render (to avoid a hydration mismatch). Tests that need the typed text must advance fake timers
+(see `Nav.test.tsx`); find the link by `href` for anything that does not.
+
+`npm run lint` (`eslint .`) — run it for larger refactors, but it's not required for small content tweaks.
 
 ## Content Updates
 Keith's resume/CV data lives in `data/index.ts` (`profile`, `impactStats`, `skillGroups`, `workExperience`, `projects`, `socialMedia`) and `public/Keith_Ng_CV.pdf` (downloadable résumé, linked from `profile.resumeHref`/`socialMedia`). When the CV changes, update both the data file and the PDF together so the site stays in sync with the actual resume.
 
 ## Agents & Skills
-Custom Copilot agents (`.github/agents/*.agent.md`) and reusable skills (`.github/skills/*/SKILL.md`) codify project-specific and general engineering conventions. Invoke the relevant one instead of re-deriving the process each time.
+Custom agents (`.claude/agents/*.md`) and reusable skills (`.claude/skills/*/SKILL.md`) codify project-specific and general engineering conventions. Invoke the relevant one instead of re-deriving the process each time.
 
 ## Agents & Skills
-Custom Copilot agents (`.github/agents/*.agent.md`) and reusable skills (`.github/skills/*/SKILL.md`) codify project-specific and general engineering conventions. Invoke the relevant one instead of re-deriving the process each time. Path-scoped rules that apply automatically (no invocation needed) live in `.github/instructions/*.instructions.md`:
-- `anti-bloat.instructions.md` — applies to `components/**,app/**,lib/**,data/**` — size/scope discipline
-- `component-conventions.instructions.md` — applies to `components/**,app/**` — structure, naming, styling, hydration-safety rules
+Custom agents (`.claude/agents/*.md`) and reusable skills (`.claude/skills/*/SKILL.md`) codify project-specific and general engineering conventions. Invoke the relevant one instead of re-deriving the process each time. Path-scoped rules that apply automatically (no invocation needed) live in `.claude/rules/*.md`:
+- `anti-bloat.md` — applies to `components/**,app/**,lib/**,data/**` — size/scope discipline
+- `component-conventions.md` — applies to `components/**,app/**` — structure, naming, styling, hydration-safety rules
 
 **Start here:** `portfolio-planner` — orchestrator entry point. Understands intent, presents plan options, delegates to the right agents below in order, gates commits/pushes behind explicit user approval. Use it whenever a task spans multiple agents or you're unsure which one to invoke.
 
@@ -57,7 +62,7 @@ Custom Copilot agents (`.github/agents/*.agent.md`) and reusable skills (`.githu
 - `nextjs-qa-reviewer` — read-only pre-ship QA checklist covering all known hydration/SSR gotchas.
 - `portfolio-commit` — groups and commits approved changes with Conventional Commits messages; runs a build gate first; never pushes.
 - `portfolio-pr-preparer` — runs all pre-PR gates (build, lint, hydration-safety scan, smoke test) and drafts the PR description; read-only.
-- `portfolio-docs-writer` — keeps `README.md`, `copilot-instructions.md`, and agent/skill docs in sync with actual changes.
+- `portfolio-docs-writer` — keeps `README.md`, `CLAUDE.md`, and agent/skill docs in sync with actual changes.
 - `rubber-duck` — generic adversarial logic reviewer (correctness, edge cases, design flaws) with no domain bias.
 
 **Project-specific skills:**
@@ -66,6 +71,6 @@ Custom Copilot agents (`.github/agents/*.agent.md`) and reusable skills (`.githu
 - `resume-content-sync` — step-by-step process for syncing a new CV into the site.
 
 **General engineering skills** (adapted from community best-practice collections, not portfolio-specific):
-- `test-driven-development`, `debugging-and-error-recovery`, `incremental-implementation`, `code-review-and-quality`, `git-workflow-and-versioning`, `documentation-and-adrs`, `planning-and-task-breakdown`, `doubt-driven-development`, `security-and-hardening`, `shipping-and-launch`, `caveman` (ultra-terse response mode). See `.github/skills/references/` for supporting testing-patterns and security-checklist detail docs.
+- `test-driven-development`, `debugging-and-error-recovery`, `incremental-implementation`, `code-review-and-quality`, `git-workflow-and-versioning`, `documentation-and-adrs`, `planning-and-task-breakdown`, `doubt-driven-development`, `security-and-hardening`, `shipping-and-launch`, `caveman` (ultra-terse response mode). See `.claude/skills/references/` for supporting testing-patterns and security-checklist detail docs.
 
 When starting non-trivial work, check whether an existing agent/skill already covers it before improvising a new approach.

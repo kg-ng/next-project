@@ -1,5 +1,9 @@
 ---
-applyTo: "components/**,app/**,lib/**,data/**"
+paths:
+  - "components/**"
+  - "app/**"
+  - "lib/**"
+  - "data/**"
 ---
 
 # Portfolio — Anti-Bloat Rules
