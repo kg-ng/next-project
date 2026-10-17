@@ -36,7 +36,7 @@ Content-only changes belong in `data/index.ts`, not hardcoded inside components.
 
 - Tailwind utility classes only — no CSS modules, no styled-components
 - Reuse the central color tokens in `tailwind.config.ts` (`black.100/200/300`, `white.100/200`, `purple`, `blue.100`) instead of hardcoding hex values or default Tailwind palette colors (`sky-*`, `cyan-*`, `emerald-*`, `fuchsia-*`) — see the Retro Cozy Pixel direction and `retro-pixel-design` skill for the current palette
-- Favor generously rounded corners (`rounded-xl`/`2xl`/`3xl`) and soft shadows over sharp edges
+- No smooth `rounded-*` corners and no soft shadows or glows. Use the stepped `.pixel-corners` / `.pixel-corners-sm` classes and `pixel-shadow` from `app/globals.css` (see the `retro-pixel-design` skill)
 - New global styles/gradients go in `app/globals.css`; new reusable tokens go in `tailwind.config.ts` — don't invent a third place for theme values
 
 ## SSR / Hydration Safety (non-negotiable)
